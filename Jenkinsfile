@@ -10,6 +10,7 @@ pipeline {
         stage('run frontend') {
             steps {
                 echo 'executing yarn ...'
+                echo 'just for test ...'
                 sh "npm install -g yarn"
                 sh "yarn install"
             }
