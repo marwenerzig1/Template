@@ -2,15 +2,16 @@ pipeline {
     agent any
 
     tools {
-      Gradle 'Gradle'
-      NodeJS 'Node-10.17'
-      
+      gradle 'Gradle'      
     }
+    
     stages {
         stage('run frontend') {
             steps {
                 echo 'executing yarn ...'
-                sh 'yarn install'
+                nodejs('Node-10.17'){
+                     sh 'yarn install'
+                }
             }
         }
         stage('run backend') {
