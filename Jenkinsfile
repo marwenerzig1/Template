@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-      gradle 'Gradle'      
+      gradle 'Gradle-8.2.1'      
     }
     
     stages {
@@ -10,7 +10,8 @@ pipeline {
             steps {
                 echo 'executing yarn ...'
                 nodejs('Node-10.17'){
-                     sh 'yarn install'
+                     sh "npm install -g yarn"
+                     sh "yarn install"
                 }
             }
         }
