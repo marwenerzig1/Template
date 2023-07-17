@@ -15,6 +15,17 @@ pipeline {
                 sh "yarn install"
             }
         }
+        stage('test'){
+            when {
+                expression {
+                    BRANCH_NAME == 'dev' || BRANCH_NAME == 'master'
+                }
+            }
+            steps{
+                echo 'Hello everyone !! '
+            }
+        }
+        
         stage('run backend') {
             steps {
                 echo 'executing nodejs ...'
