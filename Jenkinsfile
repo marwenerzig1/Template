@@ -23,6 +23,8 @@ pipeline {
             }
             steps{
                 echo 'Hello everyone !! '
+                echo 'Hello everyone  !! '
+                echo 'Thanks for everything   !! '
             }
         }
         
