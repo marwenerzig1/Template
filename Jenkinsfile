@@ -9,8 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker --version'
-        sh 'docker build -t marwenerzig1/Template .'
+        sh 'docker build -t db-alpine:latest .'
       }
     }
     stage('Login') {
@@ -20,7 +19,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push marwenerzig1/Template'
+        sh 'docker push db-alpine:latest '
       }
     }
   }
