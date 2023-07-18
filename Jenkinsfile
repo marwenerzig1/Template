@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t .'
+        sh 'docker build -t marwenerzig1/Template .'
       }
     }
     stage('Login') {
@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push marwenerzig1/alpine'
+        sh 'docker push marwenerzig1/Template'
       }
     }
   }
