@@ -1,13 +1,7 @@
 pipeline {
-  agent { 
-    docker { 
-     image 'mongo:lts'
-     args '-p 5000:5000'
-    } 
-  }
-  options {
-    buildDiscarder(logRotator(numToKeepStr: '5'))
-  }
+
+  agent { dockerfile true }
+
   environment {
     DOCKERHUB_CREDENTIALS = credentials('marwenerzig1-dockerhub')
   }
