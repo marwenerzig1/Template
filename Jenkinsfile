@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    docker {
-            image 'docker:latest'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-    }
-  }
+  agent any
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
@@ -14,7 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t marwenerzig1/dp-alpine:latest .'
+        sh 'docker build -t marwenerzig1/jenkins-docker-hub .'
       }
     }
     stage('Login') {
@@ -24,7 +19,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push marwenerzig1/db-alpine:latest'
+        sh 'docker push marwenerzig1/jenkins-docker-hub'
       }
     }
   }
@@ -34,4 +29,3 @@ pipeline {
     }
   }
 }
-  
