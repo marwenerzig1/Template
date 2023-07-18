@@ -1,15 +1,15 @@
 pipeline {
-  agent any
+  agent { label 'linux' }
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('jenkins-dockerhub')
+    DOCKERHUB_CREDENTIALS = credentials('jenkins-docker-hub')
   }
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t db-alpine:latest .'
+        sh 'docker build -t marwenerzig1/db-alpine:latest .'
       }
     }
     stage('Login') {
@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push db-alpine:latest '
+        sh 'docker push marwenerzig/db-alpine:latest '
       }
     }
   }
