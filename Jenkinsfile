@@ -1,31 +1,12 @@
 pipeline {
-  agent any
-  options {
-    buildDiscarder(logRotator(numToKeepStr: '5'))
-  }
-  environment {
-    DOCKERHUB_CREDENTIALS = credentials('jenkins-docker-hub')
-  }
-  stages {
-    stage('Build') {
-      steps {
-        sh 'docker build -t marwenerzig1/db-alpine:latest .'
-      }
+    agent {
+        docker { image 'node:18.16.0-alpine' }
     }
-    stage('Login') {
-      steps {
-        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-      }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
     }
-    stage('Push') {
-      steps {
-        sh 'docker push marwenerzig/db-alpine:latest '
-      }
-    }
-  }
-  post {
-    always {
-      sh 'docker logout'
-    }
-  }
 }
