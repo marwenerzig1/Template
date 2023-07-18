@@ -1,1 +1,1 @@
-FROM mongo
+FROM alpine:3.13.5
