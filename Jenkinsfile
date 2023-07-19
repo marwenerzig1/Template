@@ -3,13 +3,16 @@ pipeline {
     stages {
         stage('verify tooling') {
             steps {
-                sh '''
-                  docker info 
-                  docker version
-                  docker compose version
-                  curl --version
-                  jq --version
-                '''
+                echo 'dockerr infoooo '
+                sh 'docker info' 
+                echo 'dockerr versionn '
+                sh 'docker version'
+                echo 'dockerr composeee '
+                sh 'docker compose version'
+                echo 'curl version  '
+                sh 'curl --version'
+                echo 'jq version'
+                sh 'jq --version'
             }
         }
     }
