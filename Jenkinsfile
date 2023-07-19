@@ -1,11 +1,15 @@
 pipeline {
-    agent {
-        docker { image 'node:18.16.0-alpine' }
-    }
+    agent any
     stages {
-        stage('Test') {
+        stage('verify tooling') {
             steps {
-                sh 'node --version'
+                sh '''
+                  docker info 
+                  docker version
+                  docker compose version
+                  curl --version
+                  jq --version
+                '''
             }
         }
     }
