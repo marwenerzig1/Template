@@ -4,31 +4,25 @@ pipeline {
         stage('verify docker info ') {
             steps {
                 echo 'dockerr infoooo '
-                sh 'docker info' 
+                bat "docker info" 
             }
          }
         stage('verify docker version ') {
             steps {
                 echo 'dockerr versionn '
-                sh 'docker version'
+                bat "docker --version"
             }
          }
         stage('verify docker compose ') {
             steps {
                 echo 'dockerr composeee '
-                sh 'docker compose version'
+                bat "docker compose version"
             }
          }
          stage('verify curl ') {
             steps {
                 echo 'curl version'
-                sh 'curl --version'
-            }
-         }
-        stage('verify jq ') {
-            steps {
-                echo 'jq version'
-                sh 'jq --version'
+                bat 'curl --version'
             }
          }
     }
