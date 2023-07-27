@@ -7,23 +7,16 @@ pipeline {
                 bat "docker --version"
             }
          }
-        stage('go to folder ') {
-            steps {
-                bat 'cd ..'
-                bat 'cd ..'
-                bat 'cd ..'
-                bat 'cd ..'
-                bat 'cd tt'
-            }
-         }
          stage('lunsh docker compose for create the containers') {
             steps {
-                bat 'docker-compose docker-compose.yaml up'
+                bat 'docker pull node:lts'
+                bat 'docker run -d -p 8050:8050 node' 
+                bat 'docker ps'
             }
          }
          stage('go to the url') {
             steps {
-                bat 'start localhost:8070'
+                bat 'start localhost:8050'
             }
          }
     }
