@@ -18,7 +18,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				bat 'docker build https://github.com/marwenerzig1/Template.git'
+				bat 'docker build -t myapp https://github.com/marwenerzig1/Template.git'
 			}
 		}
 
@@ -32,7 +32,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				bat "docker push marwenerzig1/nodeapp_test:latest"
+				bat "docker image push "
 			}
 		}
 	}
