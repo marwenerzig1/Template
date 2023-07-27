@@ -1,15 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage('go to folder ') {
-            steps {
-                cd tt
-            }
-         }
-         stage('verify docker version ') {
+        stage('verify docker version ') {
             steps {
                 echo 'dockerr versionn '
                 bat "docker --version"
+            }
+         }
+        stage('go to folder ') {
+            steps {
+                cd tt
             }
          }
          stage('lunsh docker compose for create the containers') {
