@@ -10,7 +10,7 @@ pipeline {
          stage('lunsh docker compose for create the containers') {
             steps {
                 bat 'docker pull node:lts'
-                bat 'docker run -d -p 8050:8050 --name myyapp5 node' 
+                bat 'docker run -d -p 8050:8050 node' 
                 bat 'docker ps'
             }
          }
