@@ -4,7 +4,7 @@ pipeline {
         stage('go to folder ') {
             steps {
                 cd d:
-                cd D:\Project Devops\tt
+                bat 'cd D:\Project Devops\tt'
             }
          }
          stage('verify docker version ') {
