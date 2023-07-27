@@ -9,7 +9,11 @@ pipeline {
          }
         stage('go to folder ') {
             steps {
-                cd tt
+                bat 'cd ..'
+                bat 'cd ..'
+                bat 'cd ..'
+                bat 'cd ..'
+                bat 'cd tt'
             }
          }
          stage('lunsh docker compose for create the containers') {
