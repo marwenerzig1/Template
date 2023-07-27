@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('verify docker info ') {
             steps {
-                echo 'dockerr infoooo '
+                echo 'dockerr info '
                 bat "docker info" 
             }
          }
