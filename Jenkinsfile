@@ -18,7 +18,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				bat 'docker build -t marwenerzig1/nodeapp_test:latest .'
+				bat 'docker build https://github.com/marwenerzig1/Template.git'
 			}
 		}
 
