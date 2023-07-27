@@ -1,28 +1,26 @@
 pipeline {
     agent any
     stages {
-        stage('verify docker info ') {
+        stage('go to folder ') {
             steps {
-                echo 'dockerr info '
-                bat "docker info" 
+                cd d:
+                cd D:\Project Devops\tt
             }
          }
-        stage('verify docker version ') {
+         stage('verify docker version ') {
             steps {
                 echo 'dockerr versionn '
                 bat "docker --version"
             }
          }
-        stage('verify docker compose ') {
+         stage('lunsh docker compose for create the containers') {
             steps {
-                echo 'dockerr composeee '
-                bat "docker compose version"
+                bat 'docker-compose docker-compose.yaml up'
             }
          }
-         stage('verify curl ') {
+         stage('go to the url') {
             steps {
-                echo 'curl version'
-                bat 'curl --version'
+                bat 'start localhost:8070'
             }
          }
     }
